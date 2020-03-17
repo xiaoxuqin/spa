@@ -29,7 +29,8 @@ $(function(){
     // 3. ilegal key filter,  e.preventDefault()
     // 4. 合法字符还要考虑出现的位置  . e E -
     $width.keypress(function (e) {
-        if( /[abcdf-zABCDF-Z]/.test(e.key)){
+        // console.log(e);
+        if( /[abcdf-zABCDF-Z`~!@#$%^&*()=_+[\]{}|;:'",<>/?\\]/.test(e.key)){
             e.preventDefault();
             return;
         }
@@ -47,7 +48,11 @@ $(function(){
         // 不允许出现在科学计数法数字的中间
         var pos = e.target.selectionStart,
             con = e.target.value;
-
+        /**
+         * pos: 光标所在位置
+         * con: value值 
+         * */
+        // con.indexOf('e')不是-1，就证明式子里之前有 -1 了
         if(e.key === 'e'){
             if(pos===0 || con.indexOf('e')!==-1 || con.indexOf('E') !== -1){
                 e.preventDefault();
@@ -58,6 +63,16 @@ $(function(){
                 return;
             }
         }
+
+
+
+        // 合法字符 E
+
+
+        // 合法字符 .
+
+
+        // 合法字符 - 
 
 
         

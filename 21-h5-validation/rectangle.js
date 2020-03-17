@@ -24,6 +24,55 @@ $(function(){
         $area.val(a);
     });
 
+    // 1. event keypress
+    // 2. event argument get key value，  e.key  and  e.target.value
+    // 3. ilegal key filter,  e.preventDefault()
+    // 4. 合法字符还要考虑出现的位置  . e E -
+    $width.keypress(function (e) {
+        if( /[abcdf-zABCDF-Z]/.test(e.key)){
+            e.preventDefault();
+            return;
+        }
+
+        // 合法字符  e
+        // 允许出现在非科学计数法的数字末尾
+        // 允许出现在非科学计数法的数字中间
+
+        // 不允许出现在非科学计数法的数字前面
+        // 不允许出现在空文本中
+        // 不允许出现在负号后面
+        // 不允许出现在科学计数法（e  E）数字的末尾
+        // 不允许出现在科学计数法数字的前面
+        // 不允许出现在科学计数法数字的中间
+        var pos = e.target.selectionStart,
+            con = e.target.value;
+
+        if(e.key === 'e'){
+            if(pos===0 || con.indexOf('e')!==-1 || con.indexOf('E') !== -1){
+                e.preventDefault();
+                return;
+            }
+            if(pos===1 && con.substring(0,1)==='-'){
+                e.preventDefault();
+                return;
+            }
+        }
+
+
+        
+    })
+
+    $height.keypress(function (e) {
+        if( /[abcdf-zABCDF-Z]/.test(e.key)){
+            e.preventDefault();
+            return;
+        }
+    })
+
+
+
+
+
     // tab键的校验
     $width.focusout(function(){
         // if(!validate($width)) select this;
@@ -71,5 +120,8 @@ $(function(){
         $msg.html('');
         return true;
     }
+
+
+
 });
 // http://regex101.com
