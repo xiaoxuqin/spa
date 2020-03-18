@@ -6,27 +6,25 @@
   <link rel="stylesheet" href="./rectangle.css">
 </head>
 <body>
-  <div class="main">
+  <form>
     <lable>宽度：</lable>
-    <input id="width" type="text"/>
-    <span>*</span>
+    <input id="width" type="number" autofocus required min='0' step='0.01'>
+    <span></span>
     <br/>
-    <div id="width-validation-message"></div>
     
     <lable>高度：</lable>
-    <input id="height" type="text"/>
-    <span>*</span>
+    <input id="height" type="number" required min='0' step='0.01'/>
+    <span></span>
     <br/>
-    <div id="height-validation-message"></div>
   
-    <input id="calculate"  type="button" value="计算"/>
+    <input id="calculate"  type="submit" value="计算"/>
     <br />
     <lable>周长：</lable>
-    <input id="perimeter" type="text" disabled/>
+    <input id="perimeter" type="text" disabled />
     <br/>
     <lable>面积：</lable>
     <input id="area" type="text" disabled/>
-  </div>
+  </form>
 <!-- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="./rectangle.js"></script>

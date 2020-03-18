@@ -1,4 +1,4 @@
-.main{
+form{
   font-size:1.1em;
   margin:50px auto;
   width:370px;
@@ -11,6 +11,14 @@ input,label{
   font-size:1em;
   margin:5px 0;
   padding-left:5px;
+}
+input:valid+span:after{
+  content:'√';
+  color: green;
+}
+input:invalid+span:after{
+  content:'×';
+  color: red;
 }
 span{
   color: red;

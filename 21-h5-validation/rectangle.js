@@ -2,15 +2,18 @@
 $(function(){
     var $width = $('#width'),
         $height = $('#height'),
-        $btn = $('#calculate'),
+        // $btn = $('#calculate'),
         $per = $('#perimeter'),
+        $form = $('form');
         $area = $('#area');
     function decimalSave(num, n){
         return Math.round(num*Math.pow(10, n))/Math.pow(10,n);
     }
-    $btn.click(function(){
+    $form.submit(function(e){
         // 验证不通过，什么都不做
-        if(!validate('#width') || !validate('#height')) return;
+        // if(!validate('#width') || !validate('#height')) return;
+
+        e.preventDefault();
 
         var w = Number($width.val());
         var h = Number($height.val());
