@@ -21,13 +21,12 @@ var $timerButton = (function () {
         $.extend(cfg, conf);
 
         if (!num) {
+            clearInterval(timer);
             num = cfg.num;
             $btn.val(cfg.title + '(' + num + 's)');
-            clearInterval(timer);
             timer = setInterval(function () {
                 num--;
                 if (num === -1) {
-                    clearInterval(timer);
                     $btn.val(cfg.title);
                     $btn.removeAttr('disabled');
                     num = 0;
