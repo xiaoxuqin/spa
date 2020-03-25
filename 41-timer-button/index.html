@@ -7,14 +7,9 @@
     <title>timer-button的测试页面</title>
 </head>
 <body>
-    
     <input id="add" type="button" value="添加定时器按钮">
     <hr>
-    <div id="main">
-
-    </div>
-
-
+    <div id="main"></div>
 
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
@@ -22,18 +17,52 @@
 
     <script>
         $(function(){
-            var $btnAdd = $('#add');
-            $btnAdd.click(function(){
-                $timerButton.show({
+            var tb1 = new TimerButton();
+                tb1.show({
                     num:10,
                     title:'发送验证码',
                     onClick:function(){
-                        console.log('点击了定时器按钮');
+                        alert('短信已发送！');
+                    }
+            });
+
+            var $btnAdd = $('#add');
+            $btnAdd.click(function(){
+                // $timerButton.show({
+                var tb = new TimerButton();
+                tb.show({
+                    num:5,
+                    title:'同意',
+                    onClick:function(){
+                        alert('就知道你会同意的');
                     }
                 });
-                // console.log('add timer-button')
             })
         })
+
+
+/**
+        $(function(){
+            $timerButton.show({
+                num:10,
+                title:'发送验证码',
+                onClick:function(){
+                    alert('短信已发送！');
+                }
+            });
+
+            var $btnAdd = $('#add');
+            $btnAdd.click(function(){
+                $timerButton.show({
+                    num:5,
+                    title:'同意',
+                    onClick:function(){
+                        console.log('就知道你会同意的');
+                    }
+                });
+            })
+        })
+*/
     </script>
 
 </body>

@@ -1,50 +1,112 @@
-var $timerButton = (function () {
-    // var $html = '<input type="button" value="同意（6s）" disabled>';
+// var $timerButton = (function () {
+function TimerButton() {
     var $btn = $('<input class="timer-button" type="button" disabled>');
-    // var num = 6;
     var timer, num;
     var cfg = {
         container: 'body',
         num: 6,
-        title: "同意"
+        title: "同意",
+        onClick: null
     };
+    // function show(conf) {
+        this.show = function (conf) {  
+        $(cfg.container).append($btn);
+        $.extend(cfg, conf);
+        num = cfg.num;
+        $btn.val(cfg.title + '(' + num + 's)');
+        timer = setInterval(function () {
+            num--;
+            if (num === -1) {
+                $btn.val(cfg.title);
+                $btn.removeAttr('disabled');
+                num = 0;
+            } else {
+                $btn.val(cfg.title + '(' + num + ')s');
+            }
+        }, 1000);
+        $btn.click(cfg.onClick);
+    }
+};
 
-    // $btn.css({  
+
+/*
+var $timerButton = (function () {
+    // var $html = '<input type="button" value="同意（6s）" disabled>';
+    // var $btn = $('<input class="timer-button" type="button" disabled>');
+    // var num = 6;
+    // var timer, num;
+    // var cfg = {
+    //     container: 'body',
+    //     num: 6,
+    //     title: "同意"
+    // };
+
+    // $btn.css({
     //     height:'50px',
     //     width:'100px'
     // })
 
     function show(conf) {
+        var $btn = $('<input class="timer-button" type="button" disabled>');
+        var timer, num;
+        var cfg = {
+            container: 'body',
+            num: 6,
+            title: "同意",
+            onClick: null
+        };
+
         // 1. DOM绘制
         // $(container).html($html);
+
         $(cfg.container).append($btn);
         $.extend(cfg, conf);
+        num = cfg.num;
+        $btn.val(cfg.title + '(' + num + 's)');
+        timer = setInterval(function () {
+            num--;
+            if (num === -1) {
+                $btn.val(cfg.title);
+                $btn.removeAttr('disabled');
+                num = 0;
+            } else {
+                $btn.val(cfg.title + '(' + num + ')s');
+            }
+        }, 1000);
+        $btn.click(cfg.onClick);
 
-        if (!num) {
-            clearInterval(timer);
-            num = cfg.num;
-            $btn.val(cfg.title + '(' + num + 's)');
-            timer = setInterval(function () {
-                num--;
-                if (num === -1) {
-                    $btn.val(cfg.title);
-                    $btn.removeAttr('disabled');
-                    num = 0;
-                } else {
-                    $btn.val(cfg.title + '(' + num + ')s');
-                }
-            }, 1000);
-        }
-        $btn.click(function () {
-            cfg.onClick();
-        });
-        // 2. 事件绑定(event bind)
+
+        // if (!num) {
+        //     clearInterval(timer);
+        //     num = cfg.num;
+        //     $btn.val(cfg.title + '(' + num + 's)');
+        //     timer = setInterval(function () {
+        //         num--;
+        //         if (num === -1) {
+        //             $btn.val(cfg.title);
+        //             $btn.removeAttr('disabled');
+        //             num = 0;
+        //         } else {
+        //             $btn.val(cfg.title + '(' + num + ')s');
+        //         }
+        //     }, 1000);
+        //     // 2. 事件绑定(event bind)
+        // // $btn.click(function () {
+        // //     cfg.onClick();
+        // // });
+        // $btn.click(cfg.onClick);
+        // }
+
+        // // 2. 事件绑定(event bind)
+        // // $btn.click(function () {
+        // //     cfg.onClick();
+        // // });
     }
     return {
         show: show
     }
 }());
-
+*/
 // 不用 page load event
 
 // 封装成对象
