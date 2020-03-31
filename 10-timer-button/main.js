@@ -4,7 +4,7 @@ $(function () {
     var timer = setInterval(function(){
         num--;
         if(num === 0){
-            clearInterval(timer);
+            clearInterval(timer); 
             $btn.val('同意');
             $btn.removeAttr('disabled');
         }else{

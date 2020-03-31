@@ -9,7 +9,7 @@ define(['jquery'], function($){
             onClick: null
         };
         this.show = function (conf) {  
-            $(cfg.container).append($btn);
+            $(cfg.container).append($btn); 
             $.extend(cfg, conf);
             num = cfg.num;
             $btn.val(cfg.title + '(' + num + 's)');

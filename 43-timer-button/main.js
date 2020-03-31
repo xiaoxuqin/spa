@@ -16,10 +16,10 @@ require(['jquery'], function ($) {
                     num: 5,
                     title: '同意',
                     onClick: function () {
-                        alert('就知道你会同意的');
+                        // alert('就知道你会同意的');
                     }
                 });
             })            
         })
     })
-})
+}) 
