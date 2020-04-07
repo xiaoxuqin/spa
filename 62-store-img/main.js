@@ -1,3 +1,6 @@
+/**
+ * http://sample.wangding.in/images/student-group.png
+ */
 $(function () {
     var $url = $('input[type="text"]'),
         $btnSave = $('input[type="button"]'),
